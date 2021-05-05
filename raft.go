@@ -14,8 +14,7 @@ import (
 )
 
 const (
-	retainSnapshotCount = 2
-	raftTimeout         = 10 * time.Second
+	raftTimeout = 10 * time.Second
 )
 
 // Store is the interface Raft-backed key-value stores must implement
@@ -72,7 +71,7 @@ func (s *rStore) Open(enableSingle bool, localID string) error {
 	}
 
 	// Create the snapshot store. This allows the Raft to truncate the log.
-	snapshots, err := raft.NewFileSnapshotStore(s.dir, retainSnapshotCount, os.Stderr)
+	snapshots, err := raft.NewFileSnapshotStore(s.dir, 1, os.Stderr)
 	if err != nil {
 		return fmt.Errorf("file snapshot store: %s", err)
 	}
