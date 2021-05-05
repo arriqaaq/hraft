@@ -25,7 +25,7 @@ go build
 
 Run your first hraft node like so:
 ```bash
-$GOPATH/bin/hraft -id node0 ~/node0
+./hraft -id node0 ~/node0
 ```
 
 You can now set a key and read its value back:
@@ -41,20 +41,20 @@ Bring up three terminals
 ##### Terminal 1
 You should start the first node like so:
 ```
-$GOPATH/bin/hraft -id node1 -haddr 127.0.0.1:8080 -raddr 127.0.0.1:9000 ~/node1
+./hraft -id node1 -haddr 127.0.0.1:8080 -raddr 127.0.0.1:9000 ~/node1
 ```
 This way the node is listening on an address reachable from the other nodes. This node will start up and become leader of a single-node cluster.
 
 ##### Terminal 2
 Next, start the second node as follows:
 ```
-$GOPATH/bin/hraft -id node2 -haddr 127.0.0.1:8081 -raddr 127.0.0.1:9001 -join 127.0.0.1:8080 ~/node2
+./hraft -id node2 -haddr 127.0.0.1:8081 -raddr 127.0.0.1:9001 -join 127.0.0.1:8080 ~/node2
 ```
 
 ##### Terminal 3
 Finally, start the third node as follows:
 ```
-$GOPATH/bin/hraft -id node2 -haddr 127.0.0.1:8082 -raddr 127.0.0.1:9002 -join 127.0.0.1:8080 ~/node3
+./hraft -id node2 -haddr 127.0.0.1:8082 -raddr 127.0.0.1:9002 -join 127.0.0.1:8080 ~/node3
 ```
 This tells each new node to join the existing node. Once joined, each node now knows about the key:
 ```bash
