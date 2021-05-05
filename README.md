@@ -16,14 +16,14 @@ curl -XGET localhost:8080/key/foo
 
 ## Running hraft
 
-Starting and running a hraftd cluster is easy. Download hraftd like so:
+Starting and running a hraft cluster is easy. Download hraft like so:
 ```bash
 git clone https://github.com/arriqaaq/hraft.git
-cd hraftd/
+cd hraft/
 go build
 ```
 
-Run your first hraftd node like so:
+Run your first hraft node like so:
 ```bash
 $GOPATH/bin/hraft -id node0 ~/node0
 ```
